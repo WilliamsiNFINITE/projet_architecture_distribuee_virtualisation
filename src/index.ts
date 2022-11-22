@@ -30,9 +30,6 @@ export const parseSystemInfo = async (): Promise<ISystemInformation> => {
     await si.diskLayout().then(data => systemInformation.diskLayout = data).catch(error => console.error(error));
     await si.networkInterfaces().then(data => systemInformation.networkInterfaces = data).catch(error => console.error(error));
 
-    // console.log('System Info after parsing \n', systemInformation);
-    console.log("Done");
-
     // http create server (port : 8000, hots : localhost)
   return systemInformation;
 };
@@ -62,7 +59,7 @@ const requestListener = createRequestListener();
 // function to create a server
 export const createServer = (requestListener) => {
     const server = http.createServer(requestListener);
-    server.listen(8000, 'localhost', () => {
+    server.listen(8000, '0.0.0.0', () => {
         console.log('Server is running on port 8000');
     });
     return server;
