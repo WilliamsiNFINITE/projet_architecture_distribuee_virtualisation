@@ -17,6 +17,8 @@ describe('index test suite', () => {
         console.log('cpuName', cpuName);
         expect(cpuName).toBe('AMD');
     });
+
+
     // it('should be a 404 response from the server', () => {
     //     //test of the function createRequestListener with the url 'test'
     //     //if the server return a 404 response, the test is passed
