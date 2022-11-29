@@ -2,8 +2,7 @@
  * Mandatory Hello World function.
  * @returns A string which contains "Hello world!"
  */
-import {Cpu} from "./Utils/cpu";
-import si, {Systeminformation} from "systeminformation";
+import si from "systeminformation";
 import {ISystemInformation} from "./SystemInformation";
 import * as http from "http";
 
