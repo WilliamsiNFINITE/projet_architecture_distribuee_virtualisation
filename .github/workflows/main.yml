@@ -23,9 +23,9 @@ jobs:
           with:
             node-version: '14'
         - name: install dependencies
-          run: yarn
+          run: npm install
         - name: run tests
-          run: yarn test
+          run: npm run test
 
     #build
     build:
