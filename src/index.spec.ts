@@ -12,23 +12,23 @@ describe('index test suite', () => {
         console.log('cpuName', cpuName);
         expect(cpuName).toBe('AMD');
     });
-    it('should be a 404 response from the server', () => {
-        //test of the function createRequestListener with the url 'test'
-        //if the server return a 404 response, the test is passed
-        const requestListener = createRequestListener();
-        const server = createServer(requestListener);
-        const options = {
-            hostname: '0.0.0.0',
-            port: 8000,
-            path: '/test',
-            method: 'GET'
-        };
-        const req = http.request(options, res => {
-            expect(res.statusCode).toBe(404);
-            server.close();
-        });
-        req.end();
-    });
+    // it('should be a 404 response from the server', () => {
+    //     //test of the function createRequestListener with the url 'test'
+    //     //if the server return a 404 response, the test is passed
+    //     const requestListener = createRequestListener();
+    //     const server = createServer(requestListener);
+    //     const options = {
+    //         hostname: '0.0.0.0',
+    //         port: 8000,
+    //         path: '/test',
+    //         method: 'GET'
+    //     };
+    //     const req = http.request(options, res => {
+    //         expect(res.statusCode).toBe(404);
+    //         server.close();
+    //     });
+    //     req.end();
+    // });
 
     // it('should be a 200 response from the server', () => {
     //     //test of the function createRequestListener with the url /api/v1/sysinfo
