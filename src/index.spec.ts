@@ -1,6 +1,6 @@
 import {createRequestListener, createServer, parseSystemInfo} from "./index";
-import * as http from "http";
-import {cpu} from "systeminformation";
+// import * as http from "http";
+// import {cpu} from "systeminformation";
 
 
 describe('index test suite', () => {
