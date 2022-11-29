@@ -18,7 +18,7 @@ describe('index test suite', () => {
     //     const requestListener = createRequestListener();
     //     const server = createServer(requestListener);
     //     const options = {
-    //         hostname: 'localhost',
+    //         hostname: '0.0.0.0',
     //         port: 8000,
     //         path: '/test',
     //         method: 'GET'
@@ -29,7 +29,7 @@ describe('index test suite', () => {
     //     });
     //     req.end();
     // });
-    //
+
     // it('should be a 200 response from the server', () => {
     //     //test of the function createRequestListener with the url /api/v1/sysinfo
     //     const requestListener = createRequestListener();
