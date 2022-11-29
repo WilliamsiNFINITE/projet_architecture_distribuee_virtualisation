@@ -47,7 +47,7 @@ export const createRequestListener = () => {
             });
         } else {
             res.writeHead(404);
-            res.end(JSON.stringify({error: 'Not found'}));
+            res.end(JSON.stringify({error: 'Not found ¯\\_(ツ)_/¯'}));
         }
     }
     return requestListener;
