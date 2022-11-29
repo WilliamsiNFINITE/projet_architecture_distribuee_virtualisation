@@ -12,27 +12,20 @@ on:
 
 jobs:
 
-    #install node and dependencies
-    install:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v3.5.1
-          with:
-            # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
-            node-version: '14'
-        - run: npm install
+
 
     #tests
     test:
-        needs: install
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v2
         - uses: actions/setup-node@v2
           with:
             node-version: '14'
-        - run: npm run test
+        - name: install dependencies
+          run: npm install
+        - name: run tests
+          run: npm run test
 
     #build
     build:
