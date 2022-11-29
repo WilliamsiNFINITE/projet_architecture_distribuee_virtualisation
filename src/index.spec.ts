@@ -9,14 +9,14 @@ describe('index test suite', () => {
         expect(1).toBe(1);
     });
 
-    //
-    // it('should return cpuInfos', async () => {
-    //     //test of the function parseSystemInfo
-    //     const sysInfo = await parseSystemInfo();
-    //     const cpuName = sysInfo.cpu.manufacturer.toString();
-    //     console.log('cpuName', cpuName);
-    //     expect(cpuName).toBe('AMD');
-    // });
+
+    it('should return cpuInfos', async () => {
+        //test of the function parseSystemInfo
+        const sysInfo = await parseSystemInfo();
+        const cpuName = sysInfo.cpu.manufacturer.toString();
+        console.log('cpuName', cpuName);
+        expect(cpuName).toBe('AMD');
+    });
     // it('should be a 404 response from the server', () => {
     //     //test of the function createRequestListener with the url 'test'
     //     //if the server return a 404 response, the test is passed
