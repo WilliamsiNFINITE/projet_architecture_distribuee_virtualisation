@@ -15,7 +15,10 @@ describe('index test suite', () => {
         const sysInfo = await parseSystemInfo();
         const cpuName = sysInfo.cpu.manufacturer.toString();
         console.log('cpuName', cpuName);
-        expect(cpuName).toBe('AMD');
+        //list of cpu names
+        const cpuNames = ['AMD', 'Intel', 'ARM', 'IBM', 'Motorola', 'Qualcomm', 'Samsung', 'Texas Instruments', 'VIA', 'Vortex', 'Other'];
+        //verify that the cpu name is in the list
+        expect(cpuNames).toContain(cpuName);
     });
 
     //
