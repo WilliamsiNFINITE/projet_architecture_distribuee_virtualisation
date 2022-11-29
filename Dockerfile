@@ -1,28 +1,35 @@
- # image de départ
- FROM alpine:3.15 as alpine
+# Starting image
+FROM alpine:3.15 AS builder
 
- # chemin de travail
- WORKDIR /app
+# Workdir in container
+WORKDIR /app
 
- # installation des paquets système
- RUN apk add npm
+# Copy project into container
+COPY . ./
 
- # ajout utilisateur node et groupe node
- RUN addgroup -S node && adduser -S -g node node
+# Install node & curl
+RUN apk add --update npm
 
- # downgrade des privilèges
- USER node
+RUN npm ci --only=production
 
- # copie des fichiers du dépôt
- COPY --chown=node:node . .
+RUN cp -r /app/node_modules /app/node_modules_production
 
- # installation des dépendances avec npm
- RUN npm install
+# Install dependencies
+RUN npm install
 
- # build avec npm
- RUN npm run build
-
- # exécution
- CMD ["npm", "run", "start"]
+# Build npm
+RUN npm run build
 
 
+FROM alpine:3.15
+
+WORKDIR /app
+
+RUN apk add --update nodejs
+
+COPY --from=builder /app/node_modules_production/ ./node_modules/
+COPY --from=builder /app/dist/ ./dist/
+COPY --from=builder /app/package*.json ./
+
+# Execution
+CMD ["node", "dist/index.js"]

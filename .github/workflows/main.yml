@@ -1,0 +1,47 @@
+# workflow
+name: CI
+# event that triggers the workflow
+# on push branch main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+    #install node and dependencies
+    install:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+            with:
+            node-version: '14'
+        - run: npm install
+
+    #tests
+    test:
+        needs: install
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+            with:
+            node-version: '14'
+        - run: npm run test
+
+    #build
+    build:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+            with:
+            node-version: '14'
+        - run: npm run build
+
+
